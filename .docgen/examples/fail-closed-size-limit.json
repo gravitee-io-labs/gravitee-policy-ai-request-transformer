@@ -1,0 +1,19 @@
+{
+  "name": "AI Request Transformer",
+  "description": "Reject request when transformation cannot be applied",
+  "enabled": true,
+  "policy": "ai-request-transformer",
+  "configuration": {
+    "prompt": "Normalize this request body into safe markdown.",
+    "llmSourceMode": "INLINE",
+    "llm": {
+      "endpoint": "https://api.openai.com/v1",
+      "authType": "BEARER",
+      "authValue": "${#secrets['OPENAI_API_KEY']}"
+    },
+    "maxRequestBodySize": 65536,
+    "maxLlmResponseBodySize": 131072,
+    "llmTimeoutMs": 15000,
+    "errorMode": "FAIL_CLOSED"
+  }
+}

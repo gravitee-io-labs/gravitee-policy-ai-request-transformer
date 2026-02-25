@@ -1,0 +1,20 @@
+genExamples: []
+rawExamples:
+  - title: Transform request payload in INLINE mode
+    templateRef: v4-api-proxy
+    language: json
+    properties:
+      phase: request
+    file: .docgen/examples/chat-completions-prepend-append.json
+  - title: Resolve endpoint from LLM Proxy and fail open
+    templateRef: v4-api-proxy
+    language: json
+    properties:
+      phase: request
+    file: .docgen/examples/responses-fail-open.json
+  - title: Enforce fail-closed mode with strict size limits
+    templateRef: v4-api-proxy
+    language: json
+    properties:
+      phase: request
+    file: .docgen/examples/fail-closed-size-limit.json
