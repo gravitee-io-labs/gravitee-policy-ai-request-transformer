@@ -42,6 +42,16 @@ public class AiRequestTransformerPolicyConfiguration
 
   private ErrorMode errorMode = ErrorMode.FAIL_OPEN;
 
+  private boolean jsonTargetingEnabled;
+
+  private String targetPath = "$";
+
+  private TargetMode targetMode = TargetMode.REPLACE_TARGET;
+
+  private boolean targetRequired;
+
+  private boolean useOpenAiJsonResponseFormat;
+
   public String getPrompt() {
     return prompt;
   }
@@ -114,6 +124,48 @@ public class AiRequestTransformerPolicyConfiguration
     this.errorMode = errorMode;
   }
 
+  public boolean isJsonTargetingEnabled() {
+    return jsonTargetingEnabled;
+  }
+
+  public void setJsonTargetingEnabled(boolean jsonTargetingEnabled) {
+    this.jsonTargetingEnabled = jsonTargetingEnabled;
+  }
+
+  public String getTargetPath() {
+    return targetPath;
+  }
+
+  public void setTargetPath(String targetPath) {
+    this.targetPath = targetPath;
+  }
+
+  public TargetMode getTargetMode() {
+    return targetMode;
+  }
+
+  public void setTargetMode(TargetMode targetMode) {
+    this.targetMode = targetMode;
+  }
+
+  public boolean isTargetRequired() {
+    return targetRequired;
+  }
+
+  public void setTargetRequired(boolean targetRequired) {
+    this.targetRequired = targetRequired;
+  }
+
+  public boolean isUseOpenAiJsonResponseFormat() {
+    return useOpenAiJsonResponseFormat;
+  }
+
+  public void setUseOpenAiJsonResponseFormat(
+    boolean useOpenAiJsonResponseFormat
+  ) {
+    this.useOpenAiJsonResponseFormat = useOpenAiJsonResponseFormat;
+  }
+
   public static class Llm {
 
     private String endpoint;
@@ -171,6 +223,11 @@ public class AiRequestTransformerPolicyConfiguration
     NONE,
     BEARER,
     HEADER,
+  }
+
+  public enum TargetMode {
+    REPLACE_TARGET,
+    MERGE_OBJECT_AT_ROOT,
   }
 
   public enum LlmSourceMode {
